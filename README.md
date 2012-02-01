@@ -14,7 +14,7 @@ This server makes browsers reload via the HTTP request.
 
 Run the server:
 
-    $ node-livereload-hub [--port port] [--api-version version] [--log-file filename] [--log-level fatal|error|warn|info|debug] [--ignore-host-matching]
+    $ livereload-hub [--port port] [--api-version version] [--log-file filename] [--log-level fatal|error|warn|info|debug] [--ignore-host-matching]
 
 Connect to the server:
 
@@ -30,7 +30,7 @@ Send request for reloading:
 This software is distributed under the MIT license.
 
 
-## SEE ALSO
+## See also
 
 #### node-livereload
 An implementation of the LiveReload server in Node.js.
