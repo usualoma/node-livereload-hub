@@ -4,6 +4,7 @@ Yet another implementation of the [LiveReload](https://github.com/mockko/liverel
 
 This server makes browsers reload via the HTTP request.
 
+![LiveReloadHub](https://github.com/usualoma/node-livereload-hub/raw/master/artwork/livereload-hub.png)
 
 ## Quick start
 
