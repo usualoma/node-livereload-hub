@@ -1,12 +1,12 @@
 runner = ->
   livereload_hub = require('./livereload-hub')
 
-  opts      = require "opts"
+  opts = require "opts"
   opts.parse [
     {
       short: 'p'
       long: 'port'
-      description: 'HTTP port'
+      description: 'port'
       value: true
       required: false
     }
@@ -30,17 +30,17 @@ runner = ->
       required: false
     }
     {
-      long: 'ignore-host-matching'
-      description: 'Ignore HTTP host matching'
+      long: 'disable-host-header-matching'
+      description: "Disable host header matching\n(Use this option when you don't use name based virtual host)"
       required: false
     }
-  ]
+  ].reverse(), true
 
   port          = opts.get('port') || 35729
   api_version   = opts.get('api-version')
   log_level     = opts.get('log-level') || 'warn'
   log_file      = opts.get('log-file') || null
-  host_matching = ! opts.get('ignore-host-matching')
+  host_matching = ! opts.get('disable-host-header-matching')
 
   logger = require('logger').createLogger(log_file)
   logger.setLevel(log_level)
