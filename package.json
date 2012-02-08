@@ -21,7 +21,9 @@
     "type": "git",
     "url": "git://github.com/usualoma/node-livereload-hub.git"
   },
-  "devDependencies": { },
+  "devDependencies": {
+    "jasmine-node": ">= 1.0.20"
+  },
   "dependencies": {
     "opts": ">= 1.2.0",
     "logger": ">= 0.0.1",

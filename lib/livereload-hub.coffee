@@ -10,6 +10,7 @@ class LivereloadHub
     @clients       = {}
     @host_matching = true
     @http_callback = callback || this._httpCallback
+    @server        = null
 
     @logger = require('logger').createLogger()
     @logger.setLevel('warn')
@@ -21,13 +22,13 @@ class LivereloadHub
 
 
   listen: (port) ->
-    server = http.createServer this.http_callback
-    server.listen port, =>
+    @server = http.createServer this.http_callback
+    @server.listen port, =>
       @logger.info "Server is listening on port #{port}"
 
     WebSocketServer = websocket.server
     wsServer = new WebSocketServer(
-      httpServer: server
+      httpServer: @server
       autoAcceptConnections: false
     )
 
@@ -53,6 +54,9 @@ class LivereloadHub
         delete @clients[key]
         @logger.info "Peer " + connection.remoteAddress + " disconnected."
 
+  close: ->
+    @server.close() if @server
+    @server = null
 
   _httpCallback: (request, response) =>
     @logger.info "Received request for " + request.url

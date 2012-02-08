@@ -2,7 +2,7 @@
 
 # Tasks
 task 'test', 'Run tests', ->
-  require __dirname + '/test/test'
+  run "jasmine-node --coffee spec"
 
 task 'build', 'Builds the browser version', ->
   {readFileSync, writeFileSync} = require('fs')
